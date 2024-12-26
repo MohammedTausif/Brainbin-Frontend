@@ -3,7 +3,7 @@ import { Input } from "../components/ui/Input"
 import { Button } from "../components/ui/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../config";
 
 export function Signin() {
     const [demo, setDemo] = useState(false)
@@ -15,7 +15,7 @@ export function Signin() {
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
         try {
-            const response = await axios.post(`https://brainbin-server.onrender.com/api/v1/signin`, {
+            const response = await axios.post(`${BACKEND_URL}/api/v1/signin`, {
                 username: username,
                 password: password,
             })

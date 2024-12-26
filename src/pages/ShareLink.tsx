@@ -3,7 +3,6 @@ import axios from "axios"
 import {  useEffect, useState } from "react"
 import { SidebarShare } from "../components/ui/shared/SidebarShare"
 import { ViewerCard } from "../components/ui/shared/ViewerCard"
-// import { BACKEND_URL } from "../config";
 import {  useParams } from "react-router-dom";
 import { UserIcon } from "../icons/UserIcon"
 import { BACKEND_URL } from "../config"

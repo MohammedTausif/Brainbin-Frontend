@@ -15,7 +15,7 @@ export default function SignUp() {
     async function HandleSignup() {
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
-        await axios.post(`${BACKEND_URL}/api/v1/signup`, {
+        await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
             username,
             password
         })

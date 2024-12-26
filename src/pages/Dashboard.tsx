@@ -4,7 +4,7 @@ import { Sidebar } from "../components/ui/Sidebar";
 import { Button } from "../components/ui/Button";
 import { PlusIcon } from "../icons/PlusIcon";
 import { ShareIcon } from "../icons/ShareIcon";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL, FE_URL } from "../config";
 import axios from "axios";
 import { Card } from "../components/ui/Card";
 import { useContent } from "../hooks/useContent";
@@ -19,9 +19,9 @@ export  function Dashboard() {
 
   return <div className="bg-gray-100">
     <Sidebar />
-    <div className="p-4 ml-60 md:ml-72 min-h-screen  bg-gray-100 border-2 ">
+    <div className="p-4  md:ml-72 min-h-screen  bg-gray-100 border-2 ">
       <CreateContentModal open={modalOpen} onClose={() => { setModalOpen(false) }} />
-      <div className={`${modalOpen ? "hidden" : " flex gap-4 justify-center md:justify-end "}`}>
+      <div className={`${modalOpen ? "hidden" : " flex gap-4 justify-end md:justify-end "}`}>
         <Button className="" onClick={() => { setModalOpen(true) }} variant="primary" title="Add Content" startIcon={<PlusIcon />}></Button>
         {!brainShare && <Button  variant="secondary"  title={"Share Brain"} startIcon={<ShareIcon />}  
          onClick={async () => {
@@ -32,7 +32,7 @@ export  function Dashboard() {
               "Authorization": localStorage.getItem("token")
             }
           });
-          const shareUrl = `http://localhost:5173/share/${response.data.hash}`;
+          const shareUrl = `${FE_URL}/share/${response.data.hash}`;
           alert(shareUrl)
           setBrainShare(true)
         }
@@ -53,7 +53,7 @@ export  function Dashboard() {
 
         }
       </div>
-      <div className="flex gap-5 pt-2 justify-start md:justify-center flex-wrap">
+      <div className="flex gap-5 pt-2 justify-center md:justify-center flex-wrap">
         {contents.map(({ type, title, link, desc, _id},index) => <Card
           type={type} title={title} link={link} desc={desc} _id={_id} key={index} />)}
       </div>

@@ -40,7 +40,7 @@ export function Sidebar() {
   }
 
 
-  return <div className="h-screen bg-white border-r md:w-72 w-44 fixed left-0 top-0 pl-6">
+  return <div className=" hidden md:block h-screen bg-white border-r md:w-72 w-44 fixed left-0 top-0 pl-6">
     <div className="flex font-medium text-2xl md:text-4xl pt-8 items-center text-purple-600">
       <div className="pr-2 text-purple-600">
         <Logo />
@@ -48,7 +48,7 @@ export function Sidebar() {
       </div>
       BrainBin
     </div>
-    <div className="flex flex-col h-full justify-between ">
+    <div className=" hidden md:flex flex-col h-full justify-between ">
       <div className="pt-8 pl-4">
         {
           MenuList.map(({ title, icon }, id) =>
