@@ -9,14 +9,12 @@ import { LogoutButton } from "./Logout";
 import { SidebarItem } from "./SidebarItem";
 import axios from "axios";
 import { useContent } from "../../hooks/useContent";
-import { useState } from "react";
-import { MenuIcon } from "../../icons/MenuIcon";
+
 
 
 export function Sidebar() {
   const navigate = useNavigate()
   const { name } = useContent()
-  const [isopen, setIsopen] = useState(false)
   const MenuList = [
     {
       id: 1,
