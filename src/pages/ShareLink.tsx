@@ -1,8 +1,8 @@
 import Error from "../components/Error"
 import axios from "axios"
 import {  useEffect, useState } from "react"
-import { SidebarShare } from "../components/ui/shared/SidebarShare"
-import { ViewerCard } from "../components/ui/shared/ViewerCard"
+import  {SidebarShare} from "../components/ui/shared/SidebarShare"
+import { Card } from "../components/ui/Card"
 import {  useParams } from "react-router-dom";
 import { UserIcon } from "../icons/UserIcon"
 import { BACKEND_URL } from "../config"
@@ -32,10 +32,10 @@ export const ShareLink=()=> {
       const response =await axios.get(`${BACKEND_URL}/api/v1/brain/${shareLink}`,{
        data: { hash :shareLink },
       })
-      setError(false)
+      setLoading(false)
       setContent(response?.data.content)
       setUsername(response?.data.username)
-      setLoading(false)
+      setError(false)
       console.log("response :", response.data.username)
         }catch(error){
         console.log("error fetching data",error)
@@ -59,12 +59,12 @@ export const ShareLink=()=> {
   }
 
   return <div className="w-full bg-gray-100">
-   <SidebarShare />
-   <div className="p-4 ml-72 md:ml-72 min-h-screen bg-gray-100 border-2 ">
-      <div className="text-md flex flex-wrap text-black  w-80 justify-start font-semibold items-center gap-1">  <UserIcon/>: {username.toLocaleUpperCase()} </div> 
+   <SidebarShare/>
+   <div className="p-4  ml-0 md:ml-72 min-h-screen bg-gray-100 border-2 "> 
+      <div className="text-md flex flex-wrap text-black  w-80 justify-start font-semibold items-center gap-1 pl-20 md:pl-2 pt-4">  <UserIcon/>: {username.toLocaleUpperCase()} </div> 
      <div className="flex gap-5 pt-10 justify-center flex-wrap">
        {
-       content.map(({_id, title, type, desc, link}) => <ViewerCard _id={_id} title={title} type={type} desc={desc} link={link} key={_id} {...content} />)}
+       content.map(({_id, title, type, desc, link}) => <Card _id={_id} title={title} type={type} desc={desc} link={link} key={_id} {...content} />)}
      </div>
     
    </div>

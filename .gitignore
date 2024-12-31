@@ -24,7 +24,7 @@ Thumbs.db
 node_modules
 dist
 dist-ssr
-config
+
 *.local
 
 # Editor directories and files

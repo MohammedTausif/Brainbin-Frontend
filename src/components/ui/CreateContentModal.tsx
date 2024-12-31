@@ -1,4 +1,4 @@
-import {  useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { CrossIcon } from "../../icons/CrossIcon";
 import { Input } from './Input';
 import { Button } from "./Button";
@@ -21,7 +21,7 @@ export function CreateContentModal({ open, onClose }: any) {
     const descRef = useRef<HTMLInputElement>();
     const [type, setType] = useState(ContentType.Youtube);
 
-    function addContent() {
+    async function addContent() {
         const title = titleRef.current?.value;
         const link = linkRef.current?.value;
         const desc = descRef.current?.value;
@@ -36,19 +36,19 @@ export function CreateContentModal({ open, onClose }: any) {
             }
         }
         )
-        console.log("adde response :" , addResponse)
+        console.log("added content response :" , addResponse)
         onClose();
     }
 
     return <div>
 
         {open && <div>
-            <div className={` w-screen h-screen bg-slate-600  fixed top-0 left-[100%-288px]  opacity-60 flex justify-center  }`}>
+            <div className={` w-screen h-screen bg-slate-600  fixed top-0  left-[100%-288px]  opacity-60 flex justify-center  }`}>
 
             </div>
-            <div className="w-screen h-screen fixed top-0 left-0 flex justify-center">
+            <div className="w-screen h-screen fixed top-0 left-0 flex justify-center ">
                 <div className="flex flex-col justify-center">
-                    <span className="bg-white flex flex-col justify-center  opacity-100 p-4 rounded-xl  fixed min-h-[350px] min-w-[270px]">
+                    <span className="bg-white flex flex-col left-[15%] md:left-[50%]  md:justify-center  opacity-100 p-4 rounded-xl  fixed min-h-[350px] min-w-[270px]">
                         <h1 className="flex justify-center text-lg font-normal text-purple-600">Add Content</h1>
                         <div className="flex justify-end">
                             <div onClick={onClose} className="cursor-pointer ">
@@ -60,7 +60,6 @@ export function CreateContentModal({ open, onClose }: any) {
                             <Input reference={linkRef} placeholder={"Link"} />
                             <Input reference={descRef} placeholder={"Enter text"} />
                         </div>
-                        {/* {type === ContentType.Youtube ? "primary" : "secondary"} */}
                         <div>
                             <h1 className="text-gray-400">Type</h1>
 

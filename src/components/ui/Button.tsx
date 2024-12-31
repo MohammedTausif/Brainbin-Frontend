@@ -20,7 +20,7 @@ const variantStyles = {
      "main" : " px-7 py-3 bg-red-600 text-white  "
     }
 
-    const defaultStyles = "px-[19px] py-2 rounded-md font-light flex items-center rounded-md"
+    const defaultStyles = "md:px-[19px] px-[10px] py-2 rounded-md font-light flex items-center rounded-md"
  
 // const sizeStyles = {
 //     "lg": " px-8 py-3 text-xl rounded-xl ",
@@ -31,11 +31,11 @@ const variantStyles = {
 export const Button = ({variant, title, startIcon, loading, fullWidth, onClick, className} :ButtonProps ) =>{
     
     //    const Comp = props.startIcon;
-       return <button onClick={onClick} className={ "hover:bg-purple-500 cursor-pointer w-24 md:w-40"+ variantStyles[variant] + className +"  " + defaultStyles +` ${fullWidth ? "w-full flex justify-center items-center " : ""} ${loading? "opacity-45 ": ""}` } disabled={loading}>
-         <div className={`${startIcon? " md:pr-2 pr-1  " : ""}`}>
+       return <button onClick={onClick} className={ "hover:bg-purple-500 cursor-pointer"+ variantStyles[variant] + className +"  " + defaultStyles +` ${fullWidth ? "w-full flex justify-center items-center " : ""} ${loading? "opacity-45 ": ""}` } disabled={loading}>
+         <div className={`${startIcon? " pr-2  " : ""}`}>
             {startIcon}
          </div>
-         <div className=" md:text-[16px] text-[10px] flex justify-center items-center text-center">
+         <div className="flex justify-center items-center text-center">
          {title}
          </div>
            
