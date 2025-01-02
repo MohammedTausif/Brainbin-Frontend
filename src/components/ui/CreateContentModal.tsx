@@ -48,7 +48,7 @@ export function CreateContentModal({ open, onClose }: any) {
             </div>
             <div className="w-screen h-screen fixed top-0 left-0 flex justify-center ">
                 <div className="flex flex-col justify-center">
-                    <span className="bg-white flex flex-col left-[15%] md:left-[50%]  md:justify-center  opacity-100 p-4 rounded-xl  fixed min-h-[350px] min-w-[270px]">
+                    <span className="bg-white flex flex-col left-[10%] md:left-[50%]  md:justify-center  opacity-100 p-4 rounded-xl  fixed min-h-[350px] min-w-[270px]">
                         <h1 className="flex justify-center text-lg font-normal text-purple-600">Add Content</h1>
                         <div className="flex justify-end">
                             <div onClick={onClose} className="cursor-pointer ">
