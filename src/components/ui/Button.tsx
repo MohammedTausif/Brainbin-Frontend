@@ -20,7 +20,7 @@ const variantStyles = {
      "main" : " px-7 py-3 bg-red-600 text-white  "
     }
 
-    const defaultStyles = "md:px-[19px] px-[10px] py-2 rounded-md font-light flex items-center rounded-md"
+    const defaultStyles = "md:px-[19px]  px-[8px] py-2 rounded-md font-light flex items-center rounded-md"
  
 // const sizeStyles = {
 //     "lg": " px-8 py-3 text-xl rounded-xl ",

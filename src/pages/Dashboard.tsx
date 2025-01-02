@@ -25,7 +25,7 @@ export function Dashboard() {
     <ResponsiveSidebar/>
     <div className="p-4  top-0 ml-0 md:ml-72 min-h-screen  bg-gray-100 border-2 ">
       <CreateContentModal open={modalOpen} onClose={() => { setModalOpen(false) }} />
-      <div className={`${modalOpen ? "hidden" : " flex gap-3 md:gap-4 justify-end relative right-0"}`}>
+      <div className={`${modalOpen ? "hidden" : " flex gap-3 sm:flex-wrap md:gap-4 justify-end relative right-0"}`}>
         <Button className="" onClick={() => { setModalOpen(true) }} variant="primary" title="Add Content" startIcon={<PlusIcon />}></Button>
         {!brainShare && <Button variant="secondary" className="" title={"Share Brain"} startIcon={<ShareIcon />}
           onClick={async () => {
