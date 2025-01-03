@@ -25,7 +25,7 @@ export function CreateContentModal({ open, onClose }: any) {
         const title = titleRef.current?.value;
         const link = linkRef.current?.value;
         const desc = descRef.current?.value;
-       const addResponse = axios.post(`${BACKEND_URL}/api/v1/content`, {
+        const addResponse = axios.post(`${BACKEND_URL}/api/v1/content`, {
             link,
             title,
             type,
@@ -36,14 +36,14 @@ export function CreateContentModal({ open, onClose }: any) {
             }
         }
         )
-        console.log("added content response :" , addResponse)
+        console.log("added content response :", addResponse)
         onClose();
     }
 
     return <div>
 
         {open && <div>
-            <div className={` w-screen h-screen bg-slate-600  fixed top-0  left-[100%-288px]  opacity-60 flex justify-center  }`}>
+            <div className={` w-screen h-screen bg-slate-600  fixed top-0  left-[100%-288px]  opacity-60 flex justify-center `}>
 
             </div>
             <div className="w-screen h-screen fixed top-0 left-0 flex justify-center ">
@@ -64,22 +64,26 @@ export function CreateContentModal({ open, onClose }: any) {
                             <h1 className="text-gray-400">Type</h1>
 
                             <div className="flex justify-center flex-wrap gap-1 pb-1">
-                              
+
                                 <Button title="Youtube" variant={`${type == "youtube" ? "primary" : "secondary"}`} onClick={() => {
                                     setType(ContentType.Youtube)
-                                }}></Button>
-                                
-                                <Button title="Twitter" variant={`${type == "twitter"? "primary" : "secondary"}`} onClick={() => {
+                                }}>
+                                </Button>
+
+                                <Button title="Twitter" variant={`${type == "twitter" ? "primary" : "secondary"}`} onClick={() => {
                                     setType(ContentType.Twitter)
-                                }}></Button> 
-                
+                                }}>
+                                </Button>
+
                                 <Button title="Docx" variant={`${type == "document" ? "primary" : "secondary"}`} onClick={() => {
                                     setType(ContentType.Document)
-                                }} ></Button>
+                                }} >
+                                </Button>
 
-                                 <Button title="Insta" variant={`${type == "instagram" ? "primary" : "secondary"}`} onClick={() => {
+                                <Button title="Insta" variant={`${type == "instagram" ? "primary" : "secondary"}`} onClick={() => {
                                     setType(ContentType.Instagram)
-                                }} ></Button> 
+                                }} >
+                                </Button>
 
                             </div>
                         </div>

@@ -41,13 +41,13 @@ export function ResponsiveSidebar() {
         navigate("/");
       }
   return <div className=" md:hidden   bg-gray-100 border-none  left-0 top-0 pl-5 gap-2  ">
-      <div className=" font-medium flex  items-center text-purple-600 gap-2">
-        <div className="fixed cursor-pointer top-10 left-4"
+      <div className=" relative font-medium flex  items-center text-purple-600 gap-2">
+        <button className="fixed cursor-pointer top-6 left-3"
           onClick={()=>setIsopen(!isopen)} 
-        >{isopen ? "" : <MenuIcon/>} </div>
-        <div className="absolute text-purple-600  left-12 top-8" >
+        >{isopen ? "" : <MenuIcon/>} </button>
+        {/* <div className="absolute text-purple-600  left-12 top-8" >
           <Logo />
-        </div>
+        </div> */}
         </div>
         <div className={`fixed inset-y-0 left-0 z-50 w-56 transform bg-white p-6 shadow-lg transition-transform duration-300 ease-in-out  md:hidden ${isopen ? 'translate-x-0' : '-translate-x-full'} `}>
           <button className="fixed right-4 top-6 text-gray-700 hover:text-black text-base cursor-pointer" onClick={() => setIsopen(false)}>
