@@ -35,7 +35,7 @@ export function Card({ title, link, type, desc, _id, icon }: CardProps) {
 
 
     return <div className="" >
-        <div className="p-3 bg-white  rounded-xl border-gray-200 md:w-[300px]  min-w-[270px] h-[360px] md:h-96  overflow-hidden flex flex-col border">
+        <div className="p-3 bg-white  rounded-xl border-gray-200 md:max-w-[300px] max-w-[285px]  min-w-[270px] md:min-w-[285px] h-[360px] md:h-96  overflow-hidden flex flex-col border">
             <div className="  flex justify-between ">
                 <div className="flex items-center text-md font-medium ">
                     <div className="text-gray-500 pr-2">
@@ -60,8 +60,8 @@ export function Card({ title, link, type, desc, _id, icon }: CardProps) {
                 </div>
 
             </div>
-            <div className=" pt-1 flex  overflow-hidden items-start border-b rounded w-[260px]">
-                {type === "youtube" && <iframe className="  flex justify-center w-full  items-center" src={link?.replace("youtu.be", "www.youtube.com/embed").replace("?v=", "/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> }
+            <div className={` pt-1 flex  overflow-hidden items-start justify-center border-b rounded w-[260px] md:w-[275px]` }>
+                {type === "youtube" && <iframe className="  flex  w-full  items-center" src={link?.replace("youtu.be", "www.youtube.com/embed").replace("?v=", "/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> }
 
                 {type === "twitter" && <div className="flex justify-center w-full "> <blockquote className="twitter-tweet flex justify-center items-center overflow-hidden ">
                     <a href={link?.replace("x.com", "twitter.com") + "?ref_src=twsrc%5Etfw"} ></a>
@@ -75,7 +75,7 @@ export function Card({ title, link, type, desc, _id, icon }: CardProps) {
                 }
             </div>
 
-            <div className="pt-2 w-[100%] flex justify-start ">
+            <div className="pt-2 w-[100%] flex flex-wrap justify-start ">
                 <div className="flex ">
                     {desc}
                 </div>
