@@ -21,16 +21,9 @@ const variantStyles = {
     }
 
     const defaultStyles = "md:px-[19px]  px-[8px] py-2 rounded-md font-light flex items-center rounded-md"
- 
-// const sizeStyles = {
-//     "lg": " px-8 py-3 text-xl rounded-xl ",
-//     "md": " px-4 py-2 text-md rounded-md ",
-//     "sm": " px-2 py-1 text-sm rounded-md ",
-// }
 
 export const Button = ({variant, title, startIcon, loading, fullWidth, onClick, className} :ButtonProps ) =>{
     
-    //    const Comp = props.startIcon;
        return <button onClick={onClick} className={ "hover:bg-purple-500 cursor-pointer"+ variantStyles[variant] + className +"  " + defaultStyles +` ${fullWidth ? "w-full flex justify-center items-center " : ""} ${loading? "opacity-45 ": ""}` } disabled={loading}>
          <div className={`${startIcon? " pr-2  " : ""}`}>
             {startIcon}
