@@ -8,13 +8,11 @@ import { YoutubeIcon } from "../../icons/YoutubeIcon";
 import { LogoutButton } from "./Logout";
 import { SidebarItem } from "./SidebarItem";
 import axios from "axios";
-import { useContent } from "../../hooks/useContent";
 
 
 
 export function Sidebar() {
   const navigate = useNavigate()
-  const { name } = useContent()
   const MenuList = [
     {
       id: 1,
@@ -55,7 +53,6 @@ export function Sidebar() {
       <div className=" hidden md:flex flex-col h-full justify-between ">
 
         <div className="pt-8 pl-4">
-          <div>username {name}</div>
           {
             MenuList.map(({ title, icon }, id) =>
               <SidebarItem text={title} icon={icon} key={id} />)
