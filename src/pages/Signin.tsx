@@ -7,7 +7,7 @@ import { BACKEND_URL } from "../config";
 
 export function Signin() {
     const [demo, setDemo] = useState(false)
-
+   const [loading, setLoading]= useState(false)
 
     const usernameRef = useRef<HTMLInputElement>();
     const passwordRef = useRef<HTMLInputElement>();
@@ -17,14 +17,17 @@ export function Signin() {
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
         try {
+            setLoading(true)
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, {
                 username: username,
                 password: password,
             })
+            setLoading(false)
             const jwt = response.data.token;
             localStorage.setItem("token", jwt)
             navigate("/dashboard")
         } catch (error) {
+            setLoading(false)
             console.log("error is :" ,error)
            
         }
@@ -39,7 +42,7 @@ export function Signin() {
             {/* <div className=" flex justify-center text-[12px] text-red-500">{failMsg}</div> */}
             <Input reference={passwordRef} placeholder="Password" type="password"/>
             <div className="flex justify-center pt-4 ">
-                <Button onClick={signin} variant="primary" title="signin" fullWidth={true} />
+                <Button onClick={signin} variant="primary" title="signin" className={`${loading? "cursor-progress bg-purple-500 pointer-events-none" : "cursor-pointer"}`} fullWidth={true} />
             </div>
             <div className="pt-2 flex flex-col justify-center items-center">
                 <Button
